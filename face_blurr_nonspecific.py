@@ -14,7 +14,6 @@ while True:
 
     # Read image from directory
     img = cv2.imread('Faces/constance.jpg')
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     img, bboxes = detector.findFaces(img, draw=True)
 
     if bboxes:
@@ -27,6 +26,5 @@ while True:
             imgBlur = cv2.blur(imgCrop, (35, 35))
             img[y: y + h, x: x + w] = imgBlur
 
-    img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
     cv2.imshow("Image", img)
     cv2.waitKey(1)
